@@ -13,10 +13,13 @@ func _unhandled_input(event) -> void:
 	if Input.is_action_just_pressed("drop"):
 		drop_present()
 
+func round_start() -> void:
+	pass
+
 func round_end() -> void:
 	$RoundEnd.position = (get_viewport_rect().size / 2) - ($RoundEnd.get_minimum_size() / 2)
 	$RoundEnd.visible = true
-	$PresentCooldown.queue_free()
+	#$PresentCooldown.queue_free()
 	can_drop_present = false
 	is_round_ended = true
 
@@ -25,19 +28,21 @@ func drop_present() -> void:
 		can_drop_present = false
 		$PresentCooldown.start()
 		var new_present = present.instantiate()
-		new_present.position = $Sled/Base.global_position
+		new_present.position = $Sled/Santa.global_position
 		self.add_child(new_present)
 
-func gained_point() -> void:
+func gained_point(num : int) -> void:
 	can_drop_present = true
-	points += 1
+	points += num
 	$Points.text = "Points: %s" % str(points)
-
 
 func _on_present_cooldown_timeout():
 	if is_round_ended == false:
 		can_drop_present = true
 
-
 func _on_kill_zone_body_entered(body):
+	SignalManager.emit_signal("gain_point", -1)
 	body.queue_free()
+
+func _on_kill_zone_area_entered(area):
+	area.queue_free()

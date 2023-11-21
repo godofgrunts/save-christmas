@@ -8,15 +8,17 @@
 [node name="Sled" type="Node2D"]
 script = ExtResource("1_ev4yv")
 
-[node name="Base" type="Sprite2D" parent="."]
-texture = ExtResource("1_4rbey")
-
-[node name="Top" type="Sprite2D" parent="."]
-texture = ExtResource("2_ijuj6")
-offset = Vector2(-1, -4)
-
 [node name="Reindeer" parent="." instance=ExtResource("4_2xugp")]
 
 [node name="Bridle" type="Line2D" parent="."]
 width = 1.0
 default_color = Color(0.729412, 0.329412, 0, 1)
+
+[node name="Santa" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="Santa"]
+texture = ExtResource("1_4rbey")
+
+[node name="Top" type="Sprite2D" parent="Santa"]
+texture = ExtResource("2_ijuj6")
+offset = Vector2(-1, -4)

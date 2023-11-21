@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckdnyay52co8g"]
+[gd_scene load_steps=9 format=3 uid="uid://ckdnyay52co8g"]
 
 [ext_resource type="PackedScene" uid="uid://cjkauji1oqhd6" path="res://scenes/game_background.tscn" id="1_olcpd"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_q7w3g"]
 [ext_resource type="PackedScene" uid="uid://cnwryl1ue687i" path="res://scenes/moon.tscn" id="2_8p76e"]
 [ext_resource type="PackedScene" uid="uid://cdadujk6ii068" path="res://scenes/sled.tscn" id="3_v00ik"]
 [ext_resource type="PackedScene" uid="uid://do876inhdfnkm" path="res://scenes/house_spawner.tscn" id="5_tdgcd"]
+[ext_resource type="AudioStream" uid="uid://oonqy0gn7cvq" path="res://assets/Christmas synths.ogg" id="6_m81ak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e105i"]
 size = Vector2(320, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g07o0"]
+size = Vector2(20, 83)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_q7w3g")
@@ -39,6 +43,10 @@ one_shot = true
 position = Vector2(160, 196)
 shape = SubResource("RectangleShape2D_e105i")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(-64, 133.5)
+shape = SubResource("RectangleShape2D_g07o0")
+
 [node name="Points" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -46,5 +54,11 @@ text = "Points: 0"
 
 [node name="HouseSpawner" parent="." instance=ExtResource("5_tdgcd")]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_m81ak")
+volume_db = -30.0
+autoplay = true
+
 [connection signal="timeout" from="PresentCooldown" to="." method="_on_present_cooldown_timeout"]
+[connection signal="area_entered" from="KillZone" to="." method="_on_kill_zone_area_entered"]
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
