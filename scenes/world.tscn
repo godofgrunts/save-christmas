@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckdnyay52co8g"]
+
+[ext_resource type="PackedScene" uid="uid://cjkauji1oqhd6" path="res://scenes/game_background.tscn" id="1_olcpd"]
+[ext_resource type="PackedScene" uid="uid://cnwryl1ue687i" path="res://scenes/moon.tscn" id="2_8p76e"]
+
+[node name="World" type="Node2D"]
+
+[node name="GameBackground" parent="." instance=ExtResource("1_olcpd")]
+
+[node name="Moon" parent="." instance=ExtResource("2_8p76e")]

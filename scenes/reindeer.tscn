@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxnfirscb7xta"]
+
+[ext_resource type="Script" path="res://scripts/Reindeer.gd" id="1_ykjfo"]
+[ext_resource type="Texture2D" uid="uid://cebu0cv63dr5n" path="res://assets/reindeer_animations.png" id="2_e8kd5"]
+
+[sub_resource type="Animation" id="Animation_1ogip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_syjqy"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qsquj"]
+resource_name = "run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_af4le"]
+_data = {
+"RESET": SubResource("Animation_1ogip"),
+"idle": SubResource("Animation_syjqy"),
+"run": SubResource("Animation_qsquj")
+}
+
+[node name="Reindeer" type="Node2D"]
+script = ExtResource("1_ykjfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e8kd5")
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_af4le")
+}

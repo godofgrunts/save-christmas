@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvlsqgolv10le"]
+
+[ext_resource type="Script" path="res://scripts/Santa.gd" id="1_bydb2"]
+[ext_resource type="Texture2D" uid="uid://ckt7mwl3emth6" path="res://assets/sled.png" id="2_3715d"]
+[ext_resource type="Texture2D" uid="uid://4yhl1rp6w846" path="res://assets/santa_in_sled.png" id="3_xbdwn"]
+[ext_resource type="Texture2D" uid="uid://di75djnmefxw" path="res://assets/santa_animations.png" id="4_ptfrh"]
+
+[sub_resource type="Animation" id="Animation_7780w"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rkko8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yimbm"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7jgk"]
+_data = {
+"RESET": SubResource("Animation_rkko8"),
+"idle": SubResource("Animation_7780w"),
+"run": SubResource("Animation_yimbm")
+}
+
+[node name="Santa" type="Node2D"]
+script = ExtResource("1_bydb2")
+
+[node name="Sled" type="Node2D" parent="."]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Sled"]
+texture = ExtResource("2_3715d")
+
+[node name="Top" type="Sprite2D" parent="Sled"]
+texture = ExtResource("3_xbdwn")
+offset = Vector2(-1, -4)
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+texture = ExtResource("4_ptfrh")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground"]
+libraries = {
+"": SubResource("AnimationLibrary_e7jgk")
+}
