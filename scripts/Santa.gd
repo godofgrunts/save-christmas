@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var sled : Node2D = $Sled
 @onready var ground : Node2D = $Ground
 @onready var anim : AnimationPlayer = $Ground/AnimationPlayer
 

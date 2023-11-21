@@ -1,10 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckdnyay52co8g"]
+[gd_scene load_steps=7 format=3 uid="uid://ckdnyay52co8g"]
 
 [ext_resource type="PackedScene" uid="uid://cjkauji1oqhd6" path="res://scenes/game_background.tscn" id="1_olcpd"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_q7w3g"]
 [ext_resource type="PackedScene" uid="uid://cnwryl1ue687i" path="res://scenes/moon.tscn" id="2_8p76e"]
+[ext_resource type="PackedScene" uid="uid://cdadujk6ii068" path="res://scenes/sled.tscn" id="3_v00ik"]
+[ext_resource type="PackedScene" uid="uid://do876inhdfnkm" path="res://scenes/house_spawner.tscn" id="5_tdgcd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e105i"]
+size = Vector2(320, 20)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_q7w3g")
 
 [node name="GameBackground" parent="." instance=ExtResource("1_olcpd")]
 
 [node name="Moon" parent="." instance=ExtResource("2_8p76e")]
+level_time = 70.0
+
+[node name="Sled" parent="." instance=ExtResource("3_v00ik")]
+position = Vector2(39, 56)
+
+[node name="RoundEnd" type="Label" parent="."]
+visible = false
+offset_right = 140.0
+offset_bottom = 26.0
+size_flags_horizontal = 4
+text = "ROUND FINISHED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PresentCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="KillZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(160, 196)
+shape = SubResource("RectangleShape2D_e105i")
+
+[node name="Points" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Points: 0"
+
+[node name="HouseSpawner" parent="." instance=ExtResource("5_tdgcd")]
+
+[connection signal="timeout" from="PresentCooldown" to="." method="_on_present_cooldown_timeout"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
