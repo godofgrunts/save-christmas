@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdadujk6ii068"]
+[gd_scene load_steps=4 format=3 uid="uid://cdadujk6ii068"]
 
-[ext_resource type="Texture2D" uid="uid://ckt7mwl3emth6" path="res://assets/sled.png" id="1_4rbey"]
 [ext_resource type="Script" path="res://scripts/sled.gd" id="1_ev4yv"]
-[ext_resource type="Texture2D" uid="uid://4yhl1rp6w846" path="res://assets/santa_in_sled.png" id="2_ijuj6"]
+[ext_resource type="Texture2D" uid="uid://c8g10u8fn4bpq" path="res://assets/full_santa_in_sled.png" id="3_umc2g"]
 [ext_resource type="PackedScene" uid="uid://bxnfirscb7xta" path="res://scenes/reindeer.tscn" id="4_2xugp"]
 
 [node name="Sled" type="Node2D"]
@@ -16,9 +15,8 @@ default_color = Color(0.729412, 0.329412, 0, 1)
 
 [node name="Santa" type="Node2D" parent="."]
 
-[node name="Base" type="Sprite2D" parent="Santa"]
-texture = ExtResource("1_4rbey")
+[node name="Sprite2D" type="Sprite2D" parent="Santa"]
+texture = ExtResource("3_umc2g")
 
-[node name="Top" type="Sprite2D" parent="Santa"]
-texture = ExtResource("2_ijuj6")
-offset = Vector2(-1, -4)
+[node name="Marker2D" type="Marker2D" parent="Santa"]
+position = Vector2(6, -2)

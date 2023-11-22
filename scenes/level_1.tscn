@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvdvhu5jeakgr"]
+
+[ext_resource type="PackedScene" uid="uid://cjkauji1oqhd6" path="res://scenes/game_background.tscn" id="1_0frci"]
+[ext_resource type="PackedScene" uid="uid://do876inhdfnkm" path="res://scenes/house_spawner.tscn" id="2_kd4qk"]
+[ext_resource type="PackedScene" uid="uid://cnwryl1ue687i" path="res://scenes/moon.tscn" id="3_igkcf"]
+[ext_resource type="PackedScene" uid="uid://cdadujk6ii068" path="res://scenes/sled.tscn" id="4_oksb6"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="GameBackground" parent="." instance=ExtResource("1_0frci")]
+
+[node name="HouseSpawner" parent="." instance=ExtResource("2_kd4qk")]
+
+[node name="Moon" parent="." instance=ExtResource("3_igkcf")]
+level_time = 70.0
+
+[node name="Sled" parent="." instance=ExtResource("4_oksb6")]

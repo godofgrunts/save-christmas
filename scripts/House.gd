@@ -1,5 +1,5 @@
 extends Area2D
-
+@export var SPEED : int = -64
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,11 +8,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var x = -64 * delta
+	var x = SPEED * delta
 	self.position += Vector2(x, 0)
 
 
 func _on_body_entered(body):
 	SignalManager.emit_signal("gain_point", 1)
+	print(body)
 	body.queue_free()
 	$AnimationPlayer.play("sparkle")

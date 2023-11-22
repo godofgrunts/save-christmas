@@ -7,12 +7,6 @@ func _ready():
 	randomize()
 	self.position = get_viewport_rect().size + Vector2(64, 0)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_timer_timeout():
 	var new_house = house.instantiate()
 	new_house.position += Vector2(0, -29)

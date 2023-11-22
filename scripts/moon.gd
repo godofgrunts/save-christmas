@@ -4,7 +4,6 @@ extends Node2D
 @export var level_time : float
 var length_of_path : float
 var pps : float
-var round_ended : bool = false
 
 func _ready() -> void:
 	path.set_progress_ratio(1.0)
@@ -18,6 +17,5 @@ func _process(delta) -> void:
 	_check_time()
 
 func _check_time() -> void:
-	if path.get_progress_ratio() >= 1.0 and round_ended != true:
+	if path.get_progress_ratio() >= 1.0:
 		SignalManager.emit_signal("round_finished")
-		round_ended = true
