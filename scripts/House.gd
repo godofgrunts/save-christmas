@@ -13,7 +13,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	SignalManager.emit_signal("gain_point", 1)
-	print(body)
+	SignalManager.emit_signal("gain_point")
 	body.queue_free()
 	$AnimationPlayer.play("sparkle")

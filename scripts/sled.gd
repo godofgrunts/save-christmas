@@ -16,8 +16,8 @@ func _ready():
 # Attach Bridle every frame so it can move with Rudolph
 func _process(_delta):
 	bridle.clear_points()
-	bridle.add_point(santa_hands.global_position)
-	bridle.add_point(rudolph.global_position)
+	bridle.add_point(santa_hands.position)
+	bridle.add_point(rudolph.position)
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("drop") and presents.is_empty():
@@ -28,3 +28,7 @@ func _unhandled_input(event):
 func clear_array():
 	presents.pop_front()
 	print(presents)
+
+
+func _on_tree_entered():
+	SignalManager.emit_signal("sled_node", self)

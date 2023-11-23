@@ -20,3 +20,5 @@ texture = ExtResource("3_umc2g")
 
 [node name="Marker2D" type="Marker2D" parent="Santa"]
 position = Vector2(6, -2)
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
