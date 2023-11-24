@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://b633h36ol74h2"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_dwuiu"]
+[ext_resource type="PackedScene" uid="uid://cjkauji1oqhd6" path="res://scenes/game_background.tscn" id="2_lra1y"]
+[ext_resource type="PackedScene" uid="uid://do876inhdfnkm" path="res://scenes/house_spawner.tscn" id="3_7bfgi"]
+[ext_resource type="PackedScene" uid="uid://cnwryl1ue687i" path="res://scenes/moon.tscn" id="4_5y68d"]
+[ext_resource type="PackedScene" uid="uid://cdadujk6ii068" path="res://scenes/sled.tscn" id="5_rjj5j"]
+[ext_resource type="AudioStream" uid="uid://oonqy0gn7cvq" path="res://assets/Christmas synths.ogg" id="6_qh0gu"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_dwuiu")
+
+[node name="GameBackground" parent="." instance=ExtResource("2_lra1y")]
+
+[node name="HouseSpawner" parent="." instance=ExtResource("3_7bfgi")]
+
+[node name="Moon" parent="." instance=ExtResource("4_5y68d")]
+level_time = 70.0
+
+[node name="Sled" parent="." instance=ExtResource("5_rjj5j")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qh0gu")
+volume_db = -30.0
+autoplay = true

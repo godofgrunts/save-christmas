@@ -18,7 +18,4 @@ default_color = Color(0.729412, 0.329412, 0, 1)
 [node name="Sprite2D" type="Sprite2D" parent="Santa"]
 texture = ExtResource("3_umc2g")
 
-[node name="Marker2D" type="Marker2D" parent="Santa"]
-position = Vector2(6, -2)
-
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

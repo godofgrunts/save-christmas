@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccf037xahouo8"]
+[gd_scene load_steps=4 format=3 uid="uid://ccf037xahouo8"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t3sdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l2ek"]
 size = Vector2(321, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a1v5"]
+size = Vector2(20, 195)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_t3sdc")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="PresentDestroyer" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(161, 195)
 shape = SubResource("RectangleShape2D_7l2ek")
 
+[node name="HouseDestroyer" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-48, 106.5)
+shape = SubResource("RectangleShape2D_5a1v5")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
