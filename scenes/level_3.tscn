@@ -15,7 +15,7 @@ script = ExtResource("1_7tcrr")
 [node name="HouseSpawner" parent="." instance=ExtResource("3_g8hrb")]
 
 [node name="Moon" parent="." instance=ExtResource("4_ybayf")]
-level_time = 70.0
+level_time = 30.0
 
 [node name="Sled" parent="." instance=ExtResource("5_ndijj")]
 

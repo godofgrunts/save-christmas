@@ -6,11 +6,16 @@ var can_continue = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score.text = str(LevelInfo.score)
+	if LevelInfo.level == 5:
+		$GameOver.visible = true
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("drop") and can_continue:
-		LevelInfo.level += 1
-		SignalManager.emit_signal("new_round")
+		if LevelInfo.level != 5:
+			LevelInfo.level += 1
+			SignalManager.emit_signal("new_round")
+		else:
+			get_tree().quit()
 
 
 func _on_timer_timeout():
