@@ -23,3 +23,4 @@ level_time = 30.0
 stream = ExtResource("6_qh0gu")
 volume_db = -30.0
 autoplay = true
+bus = &"Level2"

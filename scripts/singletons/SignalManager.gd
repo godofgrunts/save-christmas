@@ -8,3 +8,4 @@ signal clear_queue
 signal present_state
 signal sled_node(node: Node2D)
 signal new_round
+signal exit_settings

@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cwkpyh0f7432o"]
+
+[ext_resource type="FontFile" uid="uid://dffaop5on2ipr" path="res://assets/04B_30__.TTF" id="1_4q3l8"]
+[ext_resource type="Texture2D" uid="uid://db4c5ifp2nlsi" path="res://assets/ui/blue_button04.png" id="1_e5g0q"]
+[ext_resource type="Texture2D" uid="uid://c6t8i16xwassr" path="res://assets/ui/blue_button02.png" id="2_ltpku"]
+[ext_resource type="Texture2D" uid="uid://ytce2s5vqr0h" path="res://assets/ui/blue_button03.png" id="3_hpuos"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7y4we"]
+texture = ExtResource("1_e5g0q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aixyh"]
+texture = ExtResource("2_ltpku")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1uvda"]
+texture = ExtResource("3_hpuos")
+
+[resource]
+default_font = ExtResource("1_4q3l8")
+default_font_size = 17
+Button/styles/hover = SubResource("StyleBoxTexture_7y4we")
+Button/styles/normal = SubResource("StyleBoxTexture_aixyh")
+Button/styles/pressed = SubResource("StyleBoxTexture_1uvda")

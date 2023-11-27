@@ -13,9 +13,9 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("drop") and can_continue:
 		if LevelInfo.level != 5:
 			LevelInfo.level += 1
-			SignalManager.emit_signal("new_round")
 		else:
-			get_tree().quit()
+			LevelInfo.level = 0
+		SignalManager.emit_signal("new_round")
 
 
 func _on_timer_timeout():

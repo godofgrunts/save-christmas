@@ -18,7 +18,7 @@ func _process(_delta):
 	bridle.add_point(santa.position)
 	bridle.add_point(rudolph.position)
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("drop") and presents.is_empty():
 		var new_present = present.instantiate()
 		new_present.position = santa.position

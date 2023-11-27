@@ -17,3 +17,4 @@ func _on_body_entered(body):
 	LevelInfo.score += 1
 	body.queue_free()
 	$AnimationPlayer.play("sparkle")
+	$AudioStreamPlayer.play()

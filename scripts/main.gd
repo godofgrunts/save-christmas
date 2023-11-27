@@ -7,20 +7,41 @@ func _ready():
 	SignalManager.round_finished.connect(round_end)
 	SignalManager.new_round.connect(_load_level)
 	_load_level()
+	
+func _unhandled_input(_event):
+	if Input.is_action_just_pressed("pause"):
+		$PauseMenu.visible = true
+		get_tree().paused = true
 
 func _load_level() -> void:
+	var packed_scene_name
+	var packed_scene : PackedScene
+	var level_scene
 	var l = LevelInfo.level
 	for child in self.get_children():
 		if "Level" in child.name:
 			remove_child(child)
-	var packed_scene_name = "res://scenes/level_" + str(l) + ".tscn"
-	var packed_scene = load(packed_scene_name)
-	var level_scene = packed_scene.instantiate()
+		if "MainMenu" in child.name:
+			remove_child(child)
+			
+	if l > 0:
+		packed_scene_name = "res://scenes/level_" + str(l) + ".tscn"
+		packed_scene = load(packed_scene_name)
+		level_scene = packed_scene.instantiate()
+	else:
+		packed_scene_name = "res://scenes/ui/main_menu.tscn"
+		packed_scene = load(packed_scene_name)
+		level_scene = packed_scene.instantiate()
+		level_scene.custom_minimum_size = Vector2(320.0,180.0)
+		level_scene.set_anchors_preset(0)
+		level_scene.position = Vector2.ZERO
+
 	add_child(level_scene)
 
 func sled_node(s : Node2D) -> void:
 	sled = s
-	sled.position = Vector2(50, 50)
+	if LevelInfo.level > 0:
+		sled.position = Vector2(50, 50)
 
 func round_end():
 	for child in self.get_children():
@@ -31,7 +52,7 @@ func round_end():
 	var end_level_scene = packed_scene.instantiate()
 	add_child(end_level_scene)
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	SignalManager.emit_signal("clear_queue")
 
 

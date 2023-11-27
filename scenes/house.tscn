@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://uccopfl0ur41"]
+[gd_scene load_steps=9 format=3 uid="uid://uccopfl0ur41"]
 
 [ext_resource type="Script" path="res://scripts/House.gd" id="1_lhjfd"]
 [ext_resource type="Texture2D" uid="uid://dol4tpdtyjvdq" path="res://assets/BrickHouse.png" id="2_o4sd1"]
 [ext_resource type="Texture2D" uid="uid://c53hc4k1ptp2u" path="res://assets/sparkle.png" id="3_gbfb6"]
+[ext_resource type="AudioStream" uid="uid://3j3a25n5xo78" path="res://assets/ui/sounds/confirmation_002.ogg" id="4_a6txh"]
 
 [sub_resource type="Animation" id="Animation_tpuy7"]
 length = 0.001
@@ -87,5 +88,9 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -8.5)
 shape = SubResource("RectangleShape2D_tmiv8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_a6txh")
+volume_db = -30.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
