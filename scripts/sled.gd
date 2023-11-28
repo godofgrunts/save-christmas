@@ -7,27 +7,27 @@ var present : PackedScene = preload("res://scenes/presents.tscn")
 var presents : Array = []
 
 # Set Rudolph 28 pixels away from edge, 38 from middle
-func _ready():
+func _ready() -> void:
 	rudolph.position = santa.position + Vector2(38,2)
 	rudolph.play_animation("run")
 	SignalManager.connect("clear_queue", clear_array)
 
 # Attach Bridle every frame so it can move with Rudolph
-func _process(_delta):
+func _process(_delta) -> void:
 	bridle.clear_points()
 	bridle.add_point(santa.position)
 	bridle.add_point(rudolph.position)
 
-func _unhandled_input(_event):
+func _unhandled_input(_event) -> void:
 	if Input.is_action_just_pressed("drop") and presents.is_empty():
 		var new_present = present.instantiate()
 		new_present.position = santa.position
 		presents.append(new_present)
 		add_child(new_present)
 
-func clear_array():
+func clear_array() -> void:
 	presents.pop_front()
 
 
-func _on_tree_entered():
+func _on_tree_entered() -> void:
 	SignalManager.emit_signal("sled_node", self)

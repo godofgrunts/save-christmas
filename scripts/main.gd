@@ -2,13 +2,13 @@ extends Node2D
 
 var sled : Node2D
 
-func _ready():
+func _ready() -> void:
 	SignalManager.sled_node.connect(sled_node)
 	SignalManager.round_finished.connect(round_end)
 	SignalManager.new_round.connect(_load_level)
 	_load_level()
 	
-func _unhandled_input(_event):
+func _unhandled_input(_event) -> void:
 	if Input.is_action_just_pressed("pause"):
 		$PauseMenu.visible = true
 		get_tree().paused = true
@@ -43,7 +43,7 @@ func sled_node(s : Node2D) -> void:
 	if LevelInfo.level > 0:
 		sled.position = Vector2(50, 50)
 
-func round_end():
+func round_end() -> void:
 	for child in self.get_children():
 		if "Level" in child.name:
 			remove_child(child)
@@ -52,9 +52,9 @@ func round_end():
 	var end_level_scene = packed_scene.instantiate()
 	add_child(end_level_scene)
 
-func _on_area_2d_body_entered(_body):
+func _on_area_2d_body_entered(_body) -> void:
 	SignalManager.emit_signal("clear_queue")
 
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(area) -> void:
 	area.queue_free()

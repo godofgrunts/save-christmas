@@ -10,7 +10,7 @@ var sled_node : PackedScene = preload("res://scenes/sled.tscn")
 var rudolph_position : Vector2
 var santa_position : Vector2
 
-func _ready():
+func _ready() -> void:
 	SignalManager.connect("exit_settings", _exit_settings)
 	anim.play("title")
 	
@@ -25,20 +25,20 @@ func _tween() -> void:
 	tween.tween_property(santa, "position", santa_position + Vector2(300, -30), 3).set_delay(0.25)
 	pass
 
-func _on_start_button_pressed():
+func _on_start_button_pressed() -> void:
 	click.play()
 	LevelInfo.level = 1
 	SignalManager.emit_signal("new_round")
 	pass # Replace with function body.
 
-func _on_settings_button_pressed():
+func _on_settings_button_pressed() -> void:
 	click.play()
 	$MarginContainer/MarginContainer.visible = true
 	
 func _exit_settings() -> void:
 	$MarginContainer/MarginContainer.visible = false
 
-func _on_quit_button_pressed():
+func _on_quit_button_pressed() -> void:
 	click.play()
 	get_tree().quit()
 

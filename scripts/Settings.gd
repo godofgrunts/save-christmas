@@ -4,15 +4,15 @@ extends Control
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	volume_slider.value = 0
 
-func _on_volume_slider_value_changed(value):
+func _on_volume_slider_value_changed(value) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
 	
 
 
-func _on_full_screen_toggle_toggled(button_pressed):
+func _on_full_screen_toggle_toggled(button_pressed) -> void:
 	print(button_pressed)
 	if button_pressed:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -20,5 +20,5 @@ func _on_full_screen_toggle_toggled(button_pressed):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	SignalManager.emit_signal("exit_settings")

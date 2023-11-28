@@ -9,7 +9,7 @@ func _ready():
 	if LevelInfo.level == 5:
 		$GameOver.visible = true
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("drop") and can_continue:
 		if LevelInfo.level != 5:
 			LevelInfo.level += 1
