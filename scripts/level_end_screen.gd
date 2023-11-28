@@ -16,6 +16,7 @@ func _unhandled_input(_event):
 		else:
 			LevelInfo.level = 0
 			LevelInfo.score = 0
+			RenderingServer.global_shader_parameter_set("drunk_level", 0)
 		SignalManager.emit_signal("new_round")
 
 

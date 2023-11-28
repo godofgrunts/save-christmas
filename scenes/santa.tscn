@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvlsqgolv10le"]
+[gd_scene load_steps=9 format=3 uid="uid://bvlsqgolv10le"]
 
 [ext_resource type="Script" path="res://scripts/Santa.gd" id="1_bydb2"]
+[ext_resource type="Shader" uid="uid://cid3bmkvab74b" path="res://shaders/vertex/sway.tres" id="2_gwnyp"]
 [ext_resource type="Texture2D" uid="uid://di75djnmefxw" path="res://assets/santa_animations.png" id="4_ptfrh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0iuj8"]
+shader = ExtResource("2_gwnyp")
 
 [sub_resource type="Animation" id="Animation_rkko8"]
 length = 0.001
@@ -65,6 +69,7 @@ script = ExtResource("1_bydb2")
 [node name="Ground" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
+material = SubResource("ShaderMaterial_0iuj8")
 texture = ExtResource("4_ptfrh")
 hframes = 4
 

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdadujk6ii068"]
+[gd_scene load_steps=6 format=3 uid="uid://cdadujk6ii068"]
 
 [ext_resource type="Script" path="res://scripts/sled.gd" id="1_ev4yv"]
+[ext_resource type="Shader" uid="uid://cid3bmkvab74b" path="res://shaders/vertex/sway.tres" id="3_cedoc"]
 [ext_resource type="Texture2D" uid="uid://c8g10u8fn4bpq" path="res://assets/full_santa_in_sled.png" id="3_umc2g"]
 [ext_resource type="PackedScene" uid="uid://bxnfirscb7xta" path="res://scenes/reindeer.tscn" id="4_2xugp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3pc0v"]
+shader = ExtResource("3_cedoc")
 
 [node name="Sled" type="Node2D"]
 script = ExtResource("1_ev4yv")
@@ -16,6 +20,7 @@ default_color = Color(0.729412, 0.329412, 0, 1)
 [node name="Santa" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Santa"]
+material = SubResource("ShaderMaterial_3pc0v")
 texture = ExtResource("3_umc2g")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
