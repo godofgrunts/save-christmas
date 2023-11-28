@@ -1,5 +1,9 @@
+# Source: https://github.com/firebelley/godot-export/blob/master/README.md
 # Whenever a tag push matching pattern "v*" then run the job
-on: push
+on: 
+  push:
+    tags:
+      - "v*"
 
 jobs:
   # job id, can be anything
