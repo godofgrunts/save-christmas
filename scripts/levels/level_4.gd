@@ -7,6 +7,7 @@ var rudolph_position : Vector2
 var santa_position : Vector2
 
 func _ready() -> void:
+	RenderingServer.global_shader_parameter_set("drunk_level", 0.8)
 	_tween()
 
 func _tween() -> void:

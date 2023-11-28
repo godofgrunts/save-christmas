@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://q3shtpcfu8jg"]
+[gd_scene load_steps=6 format=3 uid="uid://q3shtpcfu8jg"]
 
 [ext_resource type="Script" path="res://scripts/Presents.gd" id="1_oui5y"]
 [ext_resource type="Texture2D" uid="uid://bhedhuhb8paik" path="res://assets/red_present.png" id="2_5vws6"]
+[ext_resource type="Shader" uid="uid://cid3bmkvab74b" path="res://shaders/vertex/sway.tres" id="2_lbr82"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eenrf"]
+shader = ExtResource("2_lbr82")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sku5k"]
 size = Vector2(10, 9)
@@ -10,6 +14,7 @@ size = Vector2(10, 9)
 script = ExtResource("1_oui5y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_eenrf")
 texture = ExtResource("2_5vws6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

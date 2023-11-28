@@ -1,15 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjkauji1oqhd6"]
+[gd_scene load_steps=9 format=3 uid="uid://cjkauji1oqhd6"]
 
 [ext_resource type="Script" path="res://scripts/game_background.gd" id="1_76u02"]
 [ext_resource type="Texture2D" uid="uid://cn11q1vesq2dr" path="res://assets/Sky_Background_No_Moon.png" id="2_hqw65"]
+[ext_resource type="Shader" uid="uid://cid3bmkvab74b" path="res://shaders/vertex/sway.tres" id="2_m2h6h"]
 [ext_resource type="Texture2D" uid="uid://comwtijmvx6wt" path="res://assets/City_Midground.png" id="2_qwtgd"]
 [ext_resource type="Texture2D" uid="uid://31y2k1ym4xtf" path="res://assets/Houses_Foreground.png" id="3_8b00n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbbja"]
+shader = ExtResource("2_m2h6h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uj1wo"]
+shader = ExtResource("2_m2h6h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2j1q0"]
+shader = ExtResource("2_m2h6h")
 
 [node name="GameBackground" type="ParallaxBackground"]
 script = ExtResource("1_76u02")
 SPEED = 20
 
 [node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wbbja")
 texture = ExtResource("2_hqw65")
 centered = false
 
@@ -18,6 +29,7 @@ motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="CityLayer"]
+material = SubResource("ShaderMaterial_uj1wo")
 texture = ExtResource("2_qwtgd")
 centered = false
 
@@ -26,5 +38,6 @@ motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="HomeLayer"]
+material = SubResource("ShaderMaterial_2j1q0")
 texture = ExtResource("3_8b00n")
 centered = false
