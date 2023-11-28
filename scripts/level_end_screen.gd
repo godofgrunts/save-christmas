@@ -15,6 +15,7 @@ func _unhandled_input(event):
 			LevelInfo.level += 1
 		else:
 			LevelInfo.level = 0
+			LevelInfo.score = 0
 		SignalManager.emit_signal("new_round")
 
 
