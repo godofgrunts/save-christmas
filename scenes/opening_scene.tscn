@@ -1,69 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuknijifs3ths"]
+[gd_scene load_steps=21 format=3 uid="uid://cuknijifs3ths"]
 
 [ext_resource type="PackedScene" uid="uid://bvlsqgolv10le" path="res://scenes/santa.tscn" id="1_1bxkr"]
 [ext_resource type="Script" path="res://scripts/opening_scene.gd" id="1_rauwe"]
+[ext_resource type="Texture2D" uid="uid://mmrfylsmw3ap" path="res://assets/home.png" id="2_baqdd"]
 [ext_resource type="Texture2D" uid="uid://cp3lrpnxdg4ev" path="res://assets/eggnog.png" id="3_n0xv6"]
 [ext_resource type="AudioStream" uid="uid://bc5t734hcj46w" path="res://assets/swallow-05.ogg" id="4_jcgrl"]
-
-[sub_resource type="Animation" id="Animation_5t06x"]
-resource_name = "drink"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Eggnog:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(37, 157), Vector2(36.5, 155.5), Vector2(36, 154), Vector2(33, 152)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Eggnog:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-1.91986, -2.11621, -2.31082, -2.80125]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [],
-"method": &"_gulp"
-}, {
-"args": [],
-"method": &"_gulp"
-}, {
-"args": [],
-"method": &"_gulp"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Eggnog:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[ext_resource type="AudioStream" uid="uid://dlman5onsd68v" path="res://assets/falling-bottles.ogg" id="5_fn2qu"]
+[ext_resource type="Texture2D" uid="uid://dy04uol2qtiix" path="res://assets/door-open.png" id="7_fgvi7"]
+[ext_resource type="Theme" uid="uid://cwkpyh0f7432o" path="res://scenes/ui/base_theme.tres" id="8_cf0fv"]
+[ext_resource type="PackedScene" uid="uid://bxnfirscb7xta" path="res://scenes/reindeer.tscn" id="9_purxa"]
+[ext_resource type="AudioStream" uid="uid://d0doihmilwgi0" path="res://assets/door-open.ogg" id="10_bad2f"]
+[ext_resource type="AudioStream" uid="uid://bkxto0n4oe0dl" path="res://assets/every_xmas_merry_xmas.ogg" id="11_tuyeq"]
 
 [sub_resource type="Animation" id="Animation_t6wai"]
 length = 0.001
@@ -125,12 +72,156 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(72, 142)]
+"values": [Vector2(72, 140)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SantaSpeech1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SantaSpeech1/Santa1:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DoorOpen:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Reindeer:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(338, 123)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RudolphSpeech1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RudolphSpeech1/Rudolph1:visible_ratio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SantaSpeech2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SantaSpeech2/Santa3:visible_ratio")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SantaSpeech2/Santa2:visible_ratio")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Santa:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, 164)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Fade:color")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BGMusic:volume_db")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
 }
 
-[sub_resource type="Animation" id="Animation_0rdnk"]
-resource_name = "throw"
-length = 0.9
+[sub_resource type="Animation" id="Animation_5t06x"]
+resource_name = "drink"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,10 +229,10 @@ tracks/0/path = NodePath("Eggnog:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(36, 154), Vector2(171, 122), Vector2(33, 152)]
+"values": [Vector2(37, 157), Vector2(36.5, 155.5), Vector2(36, 154), Vector2(33, 152)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -150,10 +241,70 @@ tracks/1/path = NodePath("Eggnog:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-2.31082, 6.28319, -2.80125]
+"values": [-1.91986, -2.11621, -2.31082, -2.80125]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_gulp"
+}, {
+"args": [],
+"method": &"_gulp"
+}, {
+"args": [],
+"method": &"_gulp"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eggnog:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0rdnk"]
+resource_name = "throw"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eggnog:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(36, 154), Vector2(171, 122)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eggnog:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-2.31082, 6.28319]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -166,6 +317,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_bottles"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_elstv"]
@@ -196,10 +361,200 @@ tracks/1/keys = {
 "values": [Vector2(72, 142), Vector2(160, 90)]
 }
 
+[sub_resource type="Animation" id="Animation_yms7s"]
+resource_name = "santa-line1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SantaSpeech1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SantaSpeech1/Santa1:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_x7oyi"]
+resource_name = "rudolph-line1"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorOpen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reindeer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(338, 123), Vector2(316, 123)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_door_open"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RudolphSpeech1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RudolphSpeech1/Rudolph1:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ktaim"]
+resource_name = "santa-line2"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SantaSpeech2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SantaSpeech2/Santa3:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SantaSpeech2/Santa2:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_efjay"]
+resource_name = "run_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Santa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(18, 164), Vector2(157, 125), Vector2(339, 125)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reindeer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(316, 123), Vector2(354, 123)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BGMusic:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-20.0, -80.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2u7uj"]
 _data = {
 "RESET": SubResource("Animation_t6wai"),
 "drink": SubResource("Animation_5t06x"),
+"rudolph-line1": SubResource("Animation_x7oyi"),
+"run_out": SubResource("Animation_efjay"),
+"santa-line1": SubResource("Animation_yms7s"),
+"santa-line2": SubResource("Animation_ktaim"),
 "throw": SubResource("Animation_0rdnk"),
 "zoom_out": SubResource("Animation_elstv")
 }
@@ -207,20 +562,16 @@ _data = {
 [node name="OpeningScene" type="Node2D"]
 script = ExtResource("1_rauwe")
 
-[node name="Santa" parent="." instance=ExtResource("1_1bxkr")]
-position = Vector2(18, 164)
-scale = Vector2(2, 2)
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("2_baqdd")
+centered = false
 
-[node name="Eggnog" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(37, 157)
-rotation = -1.91986
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_n0xv6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Gulp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jcgrl")
+
+[node name="PlasticBottles" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fn2qu")
+volume_db = -10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -228,7 +579,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(72, 142)
+position = Vector2(72, 140)
 zoom = Vector2(2.25, 2.25)
 
 [node name="EggnogPile" type="Node2D" parent="."]
@@ -404,4 +755,122 @@ rotation = -0.349066
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_n0xv6")
 
+[node name="DoorOpen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(290, 92)
+texture = ExtResource("7_fgvi7")
+centered = false
+flip_h = true
+
+[node name="Santa" parent="." instance=ExtResource("1_1bxkr")]
+position = Vector2(18, 164)
+scale = Vector2(2, 2)
+
+[node name="Eggnog" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(37, 157)
+rotation = -1.91986
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_n0xv6")
+
+[node name="SantaSpeech1" type="ColorRect" parent="."]
+visible = false
+offset_right = 319.0
+offset_bottom = 120.0
+color = Color(0.576471, 0.576471, 0.576471, 0.639216)
+
+[node name="Santa1" type="Label" parent="SantaSpeech1"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 120.0
+theme = ExtResource("8_cf0fv")
+text = "Sweet, delicious eggnog!
+Guess I better get some
+sleep so i can deliver
+the gifts tomorrow
+night for all the good
+boys and girls!"
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Reindeer" parent="." instance=ExtResource("9_purxa")]
+position = Vector2(338, 123)
+scale = Vector2(2, 2)
+
+[node name="DoorOpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_bad2f")
+volume_db = -10.0
+
+[node name="RudolphSpeech1" type="ColorRect" parent="."]
+visible = false
+offset_right = 318.0
+offset_bottom = 74.0
+color = Color(0.576471, 0.576471, 0.576471, 0.639216)
+
+[node name="Rudolph1" type="RichTextLabel" parent="RudolphSpeech1"]
+layout_mode = 0
+offset_right = 319.0
+offset_bottom = 130.0
+theme = ExtResource("8_cf0fv")
+bbcode_enabled = true
+text = "[center]Santa?! [shake rate=20.0 level=5 connected=1]what are you doing?![/shake] we have to deliever the presents [shake rate=20.0 level=5 connected=1]tonight![/shake][/center]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="SantaSpeech2" type="ColorRect" parent="."]
+visible = false
+offset_right = 320.0
+offset_bottom = 63.0
+color = Color(0.576471, 0.576471, 0.576471, 0.639216)
+
+[node name="Santa2" type="RichTextLabel" parent="SantaSpeech2"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 63.0
+theme = ExtResource("8_cf0fv")
+bbcode_enabled = true
+text = "[center]ho! oh![/center]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Santa3" type="RichTextLabel" parent="SantaSpeech2"]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 320.0
+offset_bottom = 63.0
+theme = ExtResource("8_cf0fv")
+bbcode_enabled = true
+text = "
+[center][shake rate=50.0 level=25 connected=1]NOOOOOOOOOOOOOOOOO![/shake][/center]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Fade" type="ColorRect" parent="."]
+offset_right = 324.0
+offset_bottom = 183.0
+color = Color(0, 0, 0, 0)
+
+[node name="SpaceToContinue" type="Label" parent="."]
+visible = false
+offset_left = 47.0
+offset_top = 168.0
+offset_right = 159.0
+offset_bottom = 191.0
+theme = ExtResource("8_cf0fv")
+theme_override_font_sizes/font_size = 8
+text = "Space to Continue"
+
+[node name="Timer" type="Timer" parent="SpaceToContinue"]
+wait_time = 0.25
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_tuyeq")
+volume_db = -20.0
+autoplay = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="SpaceToContinue/Timer" to="." method="_on_timer_timeout"]

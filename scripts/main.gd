@@ -23,9 +23,15 @@ func _load_level() -> void:
 			remove_child(child)
 		if "MainMenu" in child.name:
 			remove_child(child)
+		if "OpeningScene" in child.name:
+			remove_child(child)
 			
 	if l > 0:
 		packed_scene_name = "res://scenes/level_" + str(l) + ".tscn"
+		packed_scene = load(packed_scene_name)
+		level_scene = packed_scene.instantiate()
+	elif l == -1:
+		packed_scene_name = "res://scenes/opening_scene.tscn"
 		packed_scene = load(packed_scene_name)
 		level_scene = packed_scene.instantiate()
 	else:
