@@ -20,9 +20,9 @@ func _bottles() -> void:
 
 func _door_open() -> void:
 	door_open.play()
-	
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("drop") and go_next == true:
+
+func _input(event) -> void:
+	if (Input.is_action_just_pressed("drop") or event is InputEventScreenTouch) and go_next == true:
 		go_next = false
 		$SpaceToContinue/Timer.stop()
 		$SpaceToContinue.visible = false
