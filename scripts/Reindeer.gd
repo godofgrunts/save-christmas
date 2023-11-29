@@ -14,3 +14,9 @@ func _juice(b : bool) -> void:
 		self.position += Vector2(0, -1)
 	else:
 		self.position += Vector2(0, 1)
+
+func _flip() -> void:
+	if $Sprite2D.flip_h:
+		$Sprite2D.flip_h = false
+	else:
+		$Sprite2D.flip_h = true

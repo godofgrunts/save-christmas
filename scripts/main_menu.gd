@@ -9,6 +9,7 @@ var sled_node : PackedScene = preload("res://scenes/sled.tscn")
 @onready var click : AudioStreamPlayer = $Click
 var rudolph_position : Vector2
 var santa_position : Vector2
+var skip_cutscene : bool = false
 
 func _ready() -> void:
 	SignalManager.connect("exit_settings", _exit_settings)
@@ -27,7 +28,10 @@ func _tween() -> void:
 
 func _on_start_button_pressed() -> void:
 	click.play()
-	LevelInfo.level = 1
+	if skip_cutscene:
+		LevelInfo.level = 1
+	else:
+		LevelInfo.level = -1
 	SignalManager.emit_signal("new_round")
 	pass # Replace with function body.
 
@@ -42,4 +46,5 @@ func _on_quit_button_pressed() -> void:
 	click.play()
 	get_tree().quit()
 
-
+func _on_check_box_toggled(button_pressed: bool) -> void:
+	skip_cutscene = button_pressed

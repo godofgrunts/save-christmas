@@ -14,6 +14,7 @@ config/name="save-christmas"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://assets/full_santa_in_sled.png"
+config/windows_native_icon="res://assets/icon.ico"
 
 [autoload]
 

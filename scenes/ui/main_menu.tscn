@@ -266,6 +266,22 @@ autoplay = true
 [node name="Sled" parent="." instance=ExtResource("2_xdvtw")]
 position = Vector2(-64, 48)
 
+[node name="SkipCutscene" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckBox" type="CheckBox" parent="SkipCutscene"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 156.0
+offset_right = 123.0
+offset_bottom = 180.0
+theme = ExtResource("4_4m4ee")
+theme_override_font_sizes/font_size = 9
+text = "Skip Cutscene"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="SkipCutscene/CheckBox" to="." method="_on_check_box_toggled"]
