@@ -9,8 +9,8 @@ func _ready():
 	if LevelInfo.level == 5:
 		$GameOver.visible = true
 
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("drop") and can_continue:
+func _input(event) -> void:
+	if (Input.is_action_just_pressed("drop") or event is InputEventScreenTouch) and can_continue:
 		if LevelInfo.level != 5:
 			LevelInfo.level += 1
 		else:
